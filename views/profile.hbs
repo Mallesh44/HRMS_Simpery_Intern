@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header}}
+<body>
+    {{> navbar }}
+    <div class="container-fluid">
+        <h2>User Profile</h2>
+        <img src="/images/profile.png" alt="Profile Picture" /> 
+        <h3>Name : {{user.NAME}}</h3>
+        <h3>Email : {{user.EMAIL}}</h3>
+        <h3>Age: {{user.AGE}}</h3>
+        <h3>City: {{user.CITY}}</h3>
+        <h3>Department: {{user.DEPARTMENT}}</h3>
+        <h3>Designation: {{user.DESIGNATION}}</h3>
+        <h3>Salary: {{user.SALARY}}</h3>
+        <h3>Date of Joining: {{user.DATE_OF_JOINING}}</h3>
+        <h3>Leave Days Remaining: {{user.LEAVE_DAYS_REMAINING}}</h3>
+        <h3>Department ID: {{user.department_id}}</h3>
+        <h3>Role ID: {{user.role_id}}</h3>
+
+        {{#if isAdmin}}
+        <a class="btn btn-sm btn-success" href="/edituser/{{user.ID}}">Edit</a>
+        <a onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger" href="/deleteuser/{{user.ID}}">Delete</a>
+        {{/if}}
+    </div>
+</body>
+</html>

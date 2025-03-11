@@ -1,0 +1,42 @@
+<h3>Add New Employee</h3>
+
+{{#if msg}}
+<div class="alert">{{msg}}</div>
+{{/if}}
+
+<link rel="stylesheet" href="/css/style.css">
+
+<form method="post" action="/employee/adduser">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" name="age" required>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" name="city" required>
+    </div>
+    <div class="form-group">
+        <label for="department">Department</label>
+        <input type="text" name="department" required>
+    </div>
+    <div class="form-group">
+        <label for="designation">Designation</label>
+        <input type="text" name="designation" required>
+    </div>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input type="number" name="salary" required>
+    </div>
+    <div class="form-group">
+        <label for="dateOfJoining">Date of Joining</label>
+        <input type="date" name="dateOfJoining" required>
+    </div>
+    <div class="form-group">
+        <button type="submit">Save Details</button>
+        <a href="/employee">View All</a>
+    </div>
+</form>

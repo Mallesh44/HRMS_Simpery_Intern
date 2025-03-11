@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: #5199E4;
+    font-family: 'Poppins', sans-serif; /* Override for specific sections */
+}
+
+/* Container Styles */
+.container,
+.container-fluid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background: #fff;
+    width: 90%;
+    max-width: 1200px;
+    padding: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+/* Text Styles */
+.container .text {
+    font-size: 35px;
+    font-weight: 400;
+    text-align: center;
+    color: #5199E4;
+}
+
+.container-fluid h2,
+.container-fluid h3 {
+    font-weight: 400;
+}
+
+/* Form Styles */
+.container form {
+    margin-top: -20px;
+}
+
+.container form .data {
+    height: 45px;
+    width: 100%;
+    margin: 40px 0;
+}
+
+form .data label {
+    font-size: 18px;
+}
+
+form .data input {
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid silver;
+}
+
+form .data input:focus {
+    border-color: #5199E4;
+    border-bottom-width: 2px;
+}
+
+form .forgot-pass {
+    margin-top: -8px;
+}
+
+form .forgot-pass a {
+    color: #5199E4;
+    text-decoration: none;
+}
+
+form .forgot-pass a:hover {
+    text-decoration: underline;
+}
+
+form .btn {
+    margin: 30px 0;
+    height: 45px;
+    width: 100%;
+}
+
+form .btn button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    background: #5199E4;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+form .signup-link {
+    text-align: center;
+}
+
+form .signup-link a {
+    color: #5199E4;
+    text-decoration: none;
+}
+
+form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Styles */
+nav {
+    width: 100%;
+    height: 50px;
+    background: white;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-weight: 500;
+    font-size: 18px;
+    color: #34495e;
+}
+
+nav .menu a {
+    margin: 10px 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #5199E4;
+}
+
+nav .menu a:hover {
+    text-decoration: underline;
+}
+
+/* Image Styles */
+.container-fluid img {
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Alert Styles */
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.good, .alert {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.alert {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px 20px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button Styles */
+.edit, .delete, .addbtn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.edit {
+    background-color: #28a745;
+    color: white;
+}
+
+.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.addbtn {
+    background-color: #007bff;
+    color: white;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Form Group Styles (Employee Management) */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Responsive Design (Optional) */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

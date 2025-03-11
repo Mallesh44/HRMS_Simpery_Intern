@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header}}
+<body>
+    {{> navbar }}
+    <div class="container-fluid">
+        <h2>Employee Management  </h2>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Salary</th>
+                        <th>Date of Joining</th>
+                        <th>Leave Days Remaining</th>
+                        <th>Department ID</th>
+                        <th>Role ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each employees}}
+                    <tr>
+                        <td>{{this.ID}}</td>
+                        <td>{{this.NAME}}</td>
+                        <td>{{this.AGE}}</td>
+                        <td>{{this.CITY}}</td>
+                        <td>{{this.DEPARTMENT}}</td>
+                        <td>{{this.DESIGNATION}}</td>
+                        <td>{{this.SALARY}}</td>
+                        <td>{{this.DATE_OF_JOINING}}</td>
+                        <td>{{this.LEAVE_DAYS_REMAINING}}</td>
+                        <td>{{this.department_id}}</td>
+                        <td>{{this.role_id}}</td>
+                        <td>
+                            <div style="display: flex; justify-content: space-between;"> 
+                                <a class="btn btn-sm btn-success" href="/edituser/{{this.ID}}">Edit</a> 
+                                <a onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger" href="/deleteuser/{{this.ID}}">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/employee/adduser" class="btn btn-primary">Add New Employee</a></p>
+    </div>
+</body>
+</html>

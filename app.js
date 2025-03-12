@@ -12,6 +12,7 @@ dotenv.config({
     path: "./.env",
 });
 
+
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -26,6 +27,10 @@ db.connect((err) => {
         console.log("MySQL Connection Success");
     }
 });
+
+hbs.registerHelper('hasLength', function(value) {
+    return value && value.length > 0;
+  });
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));

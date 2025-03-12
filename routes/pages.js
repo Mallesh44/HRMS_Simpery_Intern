@@ -10,6 +10,9 @@ router.get("/register", (req, res) => {
     res.render("register");
 });
 
+router.get("/profile", userController.isLoggedIn, userController.profile);
+router.post("/profile/edit", userController.isLoggedIn, userController.updateProfile);
+
 router.get("/profile", userController.isLoggedIn, (req, res) => {
     if (req.user) {
         res.render("profile", { user: req.user });

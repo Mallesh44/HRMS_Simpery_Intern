@@ -10,6 +10,76 @@ const db = mysql.createConnection({
     database: process.env.DATABASE,
 });
 
+exports.profile = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.redirect("/login");
+        }
+
+        const employeeId = req.user.ID; // Assuming users.ID and employees.ID are the same
+
+        db.query("SELECT * FROM employees WHERE ID = ?", [employeeId], (err, employeeResults) => {
+            if (err) {
+                console.error("Error fetching employee data:", err);
+                return res.render("profile", { user: req.user, employee: {} }); // Pass empty object on error
+            }
+
+            const employee = employeeResults[0] || {}; // Get the first result or an empty object
+
+            const isEditing = req.query.edit === "true";
+
+            res.render("profile", { user: req.user, employee: employee, isEditing: isEditing });
+        });
+    } catch (error) {
+        console.error("Profile error:", error);
+        res.redirect("/login");
+    }
+};
+
+exports.updateProfile = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.redirect("/login");
+        }
+
+        const employeeId = req.user.ID;
+        const { age, city, department, designation, salary, dateOfJoining, phone, address} = req.body;
+
+        db.query("SELECT * FROM employees WHERE ID = ?", [employeeId], (selectErr, selectResults)=>{
+            if(selectErr){
+                console.error("Error checking employee data:", selectErr);
+                return res.render("profile", { user: req.user, employee: req.body, msg: "Error updating profile.", msg_type: "error" });
+            }
+            if(selectResults.length === 0){
+                db.query("INSERT INTO employees (ID, AGE, CITY, DEPARTMENT, DESIGNATION, SALARY, DATE_OF_JOINING, phone, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",[employeeId, age, city, department, designation, salary, dateOfJoining, phone, address], (insertError, insertResults)=>{
+                    if(insertError){
+                        console.error("Error inserting employee data:", insertError);
+                        return res.render("profile", { user: req.user, employee: req.body, msg: "Error updating profile.", msg_type: "error" });
+                    }
+                    res.redirect("/profile");
+                });
+            } else {
+                const sql = "UPDATE employees SET AGE = ?, CITY = ?, DEPARTMENT = ?, DESIGNATION = ?, SALARY = ?, DATE_OF_JOINING = ?, phone = ?, address = ? WHERE ID = ?";
+
+                db.query(
+                    sql,
+                    [age, city, department, designation, salary, dateOfJoining, phone, address, employeeId],
+                    (err, results) => {
+                        if (err) {
+                            console.error("Error updating profile:", err);
+                            return res.render("profile", { user: req.user, employee: req.body, msg: "Error updating profile.", msg_type: "error" });
+                        }
+                        res.redirect("/profile");
+                    }
+                );
+            }
+        });
+    } catch (error) {
+        console.error("Update profile error:", error);
+        res.redirect("/profile");
+    }
+};
+
 exports.login = async (req, res) => {
   try {
       const { email, password } = req.body;

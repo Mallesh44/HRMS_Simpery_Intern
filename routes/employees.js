@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const employeeController = require("../controllers/employeeController"); // Corrected path
+const employeeController = require("../controllers/employeeController");
 const userController = require("../controllers/users");
 
 // View All Records
 router.get("/", userController.isLoggedIn, userController.authorize(['admin']), employeeController.view);
-
-// Add New Records
-router.get("/adduser", userController.isLoggedIn, userController.authorize(['admin']), employeeController.adduser);
-router.post("/adduser", userController.isLoggedIn, userController.authorize(['admin']), employeeController.save);
 
 // Update Records
 router.get("/edituser/:id", userController.isLoggedIn, userController.authorize(['admin']), employeeController.edituser);

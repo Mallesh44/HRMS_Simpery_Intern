@@ -4,7 +4,7 @@
 <body>
     {{> navbar }}
     <div class="container-fluid">
-        <h2>Employee Management  </h2>
+        <h2>Employee Management</h2>
 
         <div class="table-responsive">
             <table class="table table-striped">
@@ -39,9 +39,9 @@
                         <td>{{this.department_id}}</td>
                         <td>{{this.role_id}}</td>
                         <td>
-                            <div style="display: flex; justify-content: space-between;"> 
-                                <a class="btn btn-sm btn-success" href="/edituser/{{this.ID}}">Edit</a> 
-                                <a onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger" href="/deleteuser/{{this.ID}}">Delete</a>
+                            <div style="display: flex; justify-content: space-between;">
+                                <a class="btn btn-sm btn-success" href="/employee/edituser/{{this.ID}}">Edit</a>
+                                <a onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger" href="/employee/deleteuser/{{this.ID}}">Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -49,7 +49,6 @@
                 </tbody>
             </table>
         </div>
-        <p><a href="/employee/adduser" class="btn btn-primary">Add New Employee</a></p>
     </div>
 </body>
 </html>

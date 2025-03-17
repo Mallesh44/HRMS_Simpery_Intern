@@ -2,7 +2,16 @@
 <html lang="en">
 {{> header}}
 <body>
-    {{> navbar }}
+    <nav>
+        <div class="logo">SalveHR - HRMS</div>
+        <div class="menu">
+                <a href="/home">Home</a>
+                <a href="/employee">Employee-Management</a> 
+                <a href="/profile">Profile</a>
+                <a href="/auth/logout">Logout</a>
+        </div>
+    </nav>
+
     <div class="container-fluid">
         <h2>Employee Management</h2>
 
@@ -40,8 +49,12 @@
                         <td>{{this.role_id}}</td>
                         <td>
                             <div style="display: flex; justify-content: space-between;">
-                                <a class="btn btn-sm btn-success" href="/employee/edituser/{{this.ID}}">Edit</a>
-                                <a onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger" href="/employee/deleteuser/{{this.ID}}">Delete</a>
+                                <div class="edit-box">
+                                    <a class="btn btn-sm btn-light" href="/employee/edituser/{{this.ID}}">Edit</a>
+                                </div>
+                                <div class="delete-box">
+                                    <a onclick="return confirm('Are you sure?')" class="btn btn-sm btn-light" href="/employee/deleteuser/{{this.ID}}">Delete</a>
+                                </div>
                             </div>
                         </td>
                     </tr>

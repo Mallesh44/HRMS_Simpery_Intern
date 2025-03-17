@@ -261,6 +261,27 @@ button[type="submit"] {
     cursor: pointer;
 }
 
+/* ... (your existing CSS) ... */
+
+/* Edit and Delete Button Box Styles */
+.edit-box, .delete-box {
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block; /* Aligns boxes horizontally */
+}
+
+.edit-box {
+    background-color: green;
+}
+
+.delete-box {
+    background-color: red;
+}
+
+.edit-box a, .delete-box a {
+    color: white; /* Ensures button text is white */
+}
+
 /* Responsive Design (Optional) */
 @media screen and (max-width: 768px) {
     .container {

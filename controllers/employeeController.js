@@ -1,12 +1,7 @@
-const mysql = require("mysql");
+// employeeController.js
+const db = require("../config/db"); // Correct path
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASS,
-    database: process.env.DATABASE,
-});
-
+// ... rest of your code ...
 exports.view = (req, res) => {
     db.query("SELECT * FROM employees", (err, rows) => {
         if (!err) {

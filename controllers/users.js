@@ -1,15 +1,10 @@
-const mysql = require("mysql");
+// users.js
+const db = require("../config/db"); // Correct path
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASS,
-    database: process.env.DATABASE,
-});
-
+// ... rest of your code ...
 exports.profile = async (req, res) => {
     try {
         if (!req.user) {

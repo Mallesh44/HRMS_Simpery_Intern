@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header}}
+<body>
+    <nav>
+        <div class="logo">SalveHR - HRMS</div>
+        <div class="menu">
+            {{#if user}}
+                <a href="/home">Home</a>
+                <a href="/employee">Employee-Management</a>
+                <a href="/payroll">Payroll-Management</a>
+                <a href="/profile">Profile</a>
+                <a href="/auth/logout">Logout</a>
+            {{else}}
+                <a href="/register">Register</a>
+                <a href="/">Login</a>
+            {{/if}}
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <h2>Payroll Management</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Pay Period Start</th>
+                        <th>Pay Period End</th>
+                        <th>Gross Pay</th>
+                        <th>Taxes</th>
+                        <th>Net Pay</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each payrolls}}
+                    <tr>
+                        <td>{{this.NAME}}</td>
+                        <td>{{this.PAY_PERIOD_START}}</td>
+                        <td>{{this.PAY_PERIOD_END}}</td>
+                        <td>{{this.GROSS_PAY}}</td>
+                        <td>{{this.TAXES}}</td>
+                        <td>{{this.NET_PAY}}</td>
+                        <td>{{this.STATUS}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

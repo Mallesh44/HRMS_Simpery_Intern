@@ -1,11 +1,10 @@
-// payrollController.js
+// filepath: c:\Users\malle\Desktop\login_system - Copy\controllers\payrollController.js
 const db = require("../config/db"); // Correct path
 const mysql = require("mysql");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 
-// ... rest of your code ...
 exports.calculateNetPay = (grossPay, taxes) => {
     return grossPay - taxes;
 };

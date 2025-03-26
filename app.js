@@ -31,6 +31,7 @@ hbs.registerPartials(partialsPath);
 
 // Routes
 app.use("/", require("./routes/index"));
+app.use("/payroll", require("./routes/payroll")); // Register payroll routes
 
 app.listen(4000, () => {
     console.log("Server Started @ Port 4000");
